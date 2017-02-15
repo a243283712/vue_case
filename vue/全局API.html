@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    </head>
+    <body>
+	
+
+    <div id="box">
+   		<div v-wos.style="color" id="aaa">
+   			{{ num }}
+   		</div>
+   		
+   		<p>
+   			<button @click="jia">+</button>
+   		</p>
+    </div>
+    
+    <button onclick="xiezai()">解绑</button>
+    <style>
+    	
+    </style>
+    <script>
+    	function xiezai(){
+    		vm.$destroy();
+    	}
+    
+    
+    	Vue.directive('wos',{
+	    		bind:function(el,binding,vnode){ //被绑定
+	    			console.log('1-bind');
+	    			var s = JSON.stringify;
+	    			el.innnerHTML = 
+	    				'name:' + s(binding.name) + '<br>' +
+	    				'value' + s()
+	    		},
+	    		inserted:function(){ //绑定到节点
+	    			console.log('2-inserted');
+	    		},
+	    		update:function(){ //组件更新
+	    			console.log('3-update');
+	    		},
+	    		componentUpdated:function(){ //组件更新完成
+	    			console.log('4-componentUpdated');
+	    		},
+	    		unbind:function(){ //解绑
+	    			console.log('5-unbind');
+	    		},
+    		
+    		}	
+    	)
+    	
+    	
+        var vm = new Vue({
+            el:'#box',
+            data:{
+         		num:10,
+         		color:'red'
+         		
+            },
+            methods:{
+       			jia:function(){
+       				this.num ++;
+       			}
+            }
+        });
+
+
+    </script>
+    </body>
+</html>

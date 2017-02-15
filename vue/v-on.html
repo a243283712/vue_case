@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+
+    <div id="box">
+        <p>{{msg}}</p>
+        <button v-on:click="jia">+1</button>
+        <button v-on:click="jian">-1</button>
+        <div>
+            <input type="text" @keyup.enter="onEnter" v-model="b" />
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                msg:10,
+                b:1    
+            },
+            methods:{
+                jia:function(){
+                    this.msg ++;
+                },
+                jian:function(){
+                    this.msg --;
+                },
+                onEnter:function(){
+                    this.msg = this.msg + parseInt(this.b);
+                }
+            }
+        });
+
+
+    </script>
+    </body>
+</html>

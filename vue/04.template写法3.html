@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+
+		<div id="box">
+			
+			<template id="demo2">
+				<h1 style="color:red">模板写法2：标签模板</h1>
+			</template>
+		</div>
+
+		<style>
+
+		</style>
+		
+		<script type="x-template" id="demo3">
+			<h1 style="color:blue">模板写法3：js模板</h1>
+		</script>
+		
+		
+		
+		<script>
+			var vm = new Vue({
+				el: '#box',
+				data: {
+					msg: 1
+				},
+				//模板写法1, 键盘~~建
+//				template:`
+//					<h1 style="color:red">模板写法1:选项模板</h1>
+//				`
+				//模板写法2
+				//:'#demo2'
+				template:'#demo3'
+			
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+
+		<div id="box">
+			<hello></hello>
+			<world></world>
+		</div>
+
+		<style>
+
+		</style>
+		
+		
+		
+		
+		<script>
+		//全局化注册
+			Vue.component('hello',{
+				template:'<h1>全局化注册 《hello》</h1>'
+			})
+		
+		//局部注册
+		
+			worldworld = {
+				template:'<h1>局部化注册 《world》</h1>'
+			}
+			
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg:'hello Vue!!'
+				},
+				components:{
+					'world':worldworld
+				}
+			
+			})
+		</script>
+	</body>
+
+</html>

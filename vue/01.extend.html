@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    </head>
+    <body>
+	
+
+    <div id="box">
+   		<div id="header"></div>
+    </div>
+    
+   
+    <style>
+    	
+    </style>
+    <script>
+    
+    	var header_aa = Vue.extend({
+    		template:'<p>{{ msg }}</p>',
+    		data:function(){
+    			return{
+    				msg:'Hello Vue!!!'
+    			}
+    		}
+    	});
+    	
+   
+		new header_aa().$mount('#header')
+
+    </script>
+    </body>
+</html>

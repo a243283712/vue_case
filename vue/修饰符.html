@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+
+    <div id="box">
+        <p>原始文本：{{msg}}</p>
+        <h3>文本框</h3>
+        <p>v-model:<input type="text" v-model="msg"></p>
+        <p>v-model.lazy:<input type="text" v-model.lazy="msg"></p>
+        <p>v-model.number:<input type="text" v-model.number="msg"></p>
+        <p>v-model.trim:<input type="text" v-model.trim="msg"></p>
+        <hr />
+        <h3>文本域</h3>
+        <textarea name="" id="" cols="30" rows="10" v-model="msg"></textarea>
+        <h3>单选</h3>
+        <p>
+            <input type="checkbox" id="checkbox" v-model="xz" />
+            <label for="checkbox">{{xz}}</label>
+        </p>
+        <h3>多选框</h3>
+        	<p>
+        		<input type="checkbox" id="aaa" value="aaa" v-model="checkname" />
+		        <label for="aaa">jack</label>
+		        <input type="checkbox" id="bbb" value="bbb" v-model="checkname" />
+		        <label for="bbb">lack</label>
+        	</p>
+        <p>{{checkname}}</p>
+        
+        <h3>单选</h3>
+        <input type="radio" name="dx" value="dx01" id="dz01" v-model="danxuan" />
+        <label for="dx01">01</label>
+        <input type="radio" name="dx" value="dx02" id="dz02" v-model="danxuan" />
+        <label for="dx02">02</label>
+        <p>{{danxuan}}</p>
+        
+        <h3>选择列表</h3>
+        <select v-model="select">
+        	<option>a01</option>
+        	<option>a02</option>
+        	<option>a03</option>
+        </select>
+        <p>{{select}}</p>
+        <hr />
+        <select v-model="select02" multiple>
+        	<option>a01</option>
+        	<option>a02</option>
+        	<option>a03</option>
+        </select>
+        <p>{{select02}}</p>
+        <hr />
+        for:
+        <select >
+        	<option v-for="aa in select03">{{aa}}</option>
+        </select>
+        <p>{{select02}}</p>
+    </div>
+    
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#box',
+            data:{
+              msg:'hello vue!',
+              xz:true,
+              checkname:[],
+              danxuan:'',
+              select:'',
+              select02:[],
+              select03:[1,2,3]
+            },
+            methods:{
+       			
+            }
+        });
+
+
+    </script>
+    </body>
+</html>

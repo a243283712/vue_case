@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+    <h1>Hello World实例</h1>
+    <div id="box">
+        <p>{{msg}}</p>
+        <input type="text" v-model="msg" />
+    </div>
+    
+    <script type="text/javascript">
+        var aaa = new Vue({
+            el:'#box',
+            data:{
+                msg:'hello vue!!'
+            }
+        });
+    </script>
+    </body>
+</html>

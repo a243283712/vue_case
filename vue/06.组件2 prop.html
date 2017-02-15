@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+
+		<div id="box">
+		
+			<world here="China"></world>
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+
+		//局部注册
+		
+			worldworld = {
+				template:'<h1>my here is {{ here }}</h1>',
+				props:['here']
+			}
+			
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg:'hello Vue!!'
+				},
+				components:{
+					'world':worldworld
+				}
+			
+			})
+		</script>
+	</body>
+
+</html>

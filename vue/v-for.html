@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+    <h1>v-for</h1>
+    <div id="box">
+        <ul>
+            <li v-for="(item,index) in devSt">
+                {{ index }} : {{ item.name }} - {{ item.age }}
+            </li>
+        </ul>
+
+        <hr />
+
+        <ul>
+            <li v-for="item in devItems">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                items:[5,85,63,1,54,31,83],
+                devItems:[],
+                st:[
+                    {name:'A',age:20},
+                    {name:'B',age:10},
+                    {name:'C',age:42},
+                    {name:'D',age:15},
+                    {name:'E',age:53},
+                ]
+            },
+            computed:{
+                devItems : function(){
+                    return this.items.sort(sortNumber);
+                    // return this.items.reverse();  //倒序
+                },
+                devSt : function() {
+                    return sortByKey(this.st,'age');
+                }
+            }
+        });
+
+        //数组排序
+        function sortByKey(array,key) {
+            return array.sort(function(a,b){
+                var x = a[key],
+                    y = b[key];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+        }
+
+        // 数字排序
+        function sortNumber(a,b) {
+            return a - b;
+        }
+    </script>
+    </body>
+</html>

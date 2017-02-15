@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+	
+
+    <div id="box">
+   		<p v-pre>{{msg}}</p> //显示源码
+   		<p v-cloak>在浏览器渲染完后出现</p>  //加载完后出现
+   		<p v-once>原来输入的是：{{msg}}</p>  //绑定一次
+   		<textarea name="" rows="" cols="" v-model="msg"></textarea>
+    </div>
+    <style>
+    	[v-cloak]{
+    		display: none;
+    	}
+    </style>
+    <script>
+        var vm = new Vue({
+            el:'#box',
+            data:{
+         		msg:'hello vue!',
+         		
+            },
+            methods:{
+       			
+            }
+        });
+
+
+    </script>
+    </body>
+</html>

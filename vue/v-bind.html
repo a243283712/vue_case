@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+	
+
+    <div id="box">
+       	<img v-bind:src="img" :width="width" />
+       	<div :class="className">1.绑定class</div>
+       	<div :class="{red:a}">2.绑定class中的判断</div>
+       	<div :class="[classA,classB]">3.绑定class中使用数组</div>
+       	<div :class="[a?classA:classB]">4.三元表达式</div>
+       	<div :class="[{red:a},classB]">5.判断组合</div>
+       	<div :style="{color:colorred,fontSize:fontSize}">6.style</div>
+       	<div :style="fontArray">6.style</div>
+    </div>
+    <style>
+    	.red{
+    		color:red;
+    	}
+    	.yellow{
+    		font-size: 200%;	
+    	}
+    </style>
+    <script>
+        var vm = new Vue({
+            el:'#box',
+            data:{
+         				img:"http://images.cnitblog.com/blog/36987/201411/281255474349914.jpg",
+         		width:'100',
+         		className:'red',
+         		a:true,
+         		b:false,
+         		classA:'red',
+         		classB:'yellow',
+         		colorred:'green',
+         		fontSize:'50px',
+         		fontArray:{
+         			color:'yellow',
+         			fontSize:'100px'
+         		}
+            },
+            methods:{
+       			
+            }
+        });
+
+
+    </script>
+    </body>
+</html>
