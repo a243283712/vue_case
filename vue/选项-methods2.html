@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+	<!--计算-->
+		<div id="box">
+			<p>{{ a }}</p>
+			
+			
+			
+			<button @click="add">增加方法1</button><br />
+			<button @click="a++">增加</button><br />
+			<button @click="a=0">等于0</button><br />
+			
+			<button @click="jia(2)">函数传值增加</button><br /> <!--函数传值-->
+			<button @click="jia(2,$event)">$event增加</button><br /> <!--$event可获取很多属性-->
+		
+		
+			<p><btn @click.native='add'></btn></btn></p><!--外部组件按钮,通过.native修饰  调取add方法-->
+		<!--原生方法-->
+			<p><button onclick="jiajia()">原生方法</button></p>
+			<p><button onclick="vm.add()">外部访问构造器里的事件</button></p>
+		
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+
+			function jiajia(){
+				vm.a ++
+			}
+			
+			var btn = {
+				template:'<button>外部组件按钮</button>'
+			}
+		
+		
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					a:1
+				},
+				components:{
+					'btn':btn
+				},
+				methods:{
+					add:function(){
+						this.a ++
+					},
+					jia:function(num,event){
+						console.log(event)
+						if(num != ''){
+							this.a += num
+						}else{
+							this.a ++
+						}
+					}
+				}
+			})
+		
+		</script>
+	</body>
+
+</html>

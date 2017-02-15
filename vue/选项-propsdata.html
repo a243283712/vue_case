@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+	<!--创建实例时传递props，主要作用于方便测试-->
+		<div id="box">
+			
+			<header></header>
+				
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+
+			var hd = Vue.extend({
+				template:'<p>{{msg}} - {{a}}</p>',
+				data:function(){
+					return{
+						msg:'Hello my is header'
+					}
+				},
+				props:['a']
+			})
+			
+			new hd({
+				propsData:{
+					a:'aaaaaaaa'
+				}
+			}).$mount('header')
+		</script>
+	</body>
+
+</html>

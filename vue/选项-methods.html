@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+	<!--计算-->
+		<div id="box">
+			{{ a }}
+			
+			<button @click="add">增加</button>
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					a:1
+				},
+				methods:{
+					add:function(){
+						this.a ++
+					}
+				}
+			})
+		
+		</script>
+	</body>
+
+</html>

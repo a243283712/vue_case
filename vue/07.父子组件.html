@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+
+		<div id="box">
+		
+			<parent></parent>
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+
+		
+			//子组件
+			var child = {
+				template:'<h1>this is child</h1>'
+			}
+			var parent = {
+				template:`
+				<div>
+					<p>this is parent</p>
+					<child></child>
+				</div>
+				`,
+				components:{
+					'child':child
+				}
+			}
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg:'hello Vue!!'
+				},
+				components:{
+					'parent':parent
+				}
+			
+			})
+		</script>
+	</body>
+
+</html>
