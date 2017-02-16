@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+
+    <div id="box">
+        <p>{{msg}}</p>
+        <button onclick="xiezai()">卸载</button>
+    </div>
+    
+    <script type="text/javascript">
+    	// jq必须在生命周期 4-6这三个阶段使用
+    
+	   	var aaa = Vue.extend({
+	   		template:'<p>{{msg}}</p>',
+	   		data:function(){
+	   			return {
+	   				msg:'hello!'
+	   			}
+	   		},
+	   		destroyed:function(){
+	   			console.log('10.销毁之后')
+	   		}
+	   	})
+    
+       	var vm = new aaa().$mount('#box') //1.实例化方法一
+        
+        function xiezai(){
+        	vm.$destroy();
+        }
+        
+        
+    </script>
+    </body>
+</html>

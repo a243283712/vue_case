@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+	<!--计算-->
+		<div id="box">
+			{{ msg }}
+			
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+			
+			var mix = {
+				created:function(){
+					this.msg='混入成功'
+				}
+			}
+		
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg:'hello Vue！！'
+				},
+				methods:{
+			
+				},
+				mixins:[mix]
+				
+
+			})
+			
+			
+			
+		</script>
+	</body>
+
+</html>

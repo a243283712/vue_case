@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+
+		<script type="text/javascript" src="assets/js/vue.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	</head>
+
+	<body>
+	<!--计算-->
+		<div id="box">
+			{{ msg }}
+			<button @click="add">加</button>
+		</div>
+
+		<style>
+
+		</style>
+
+		<script>
+			// 外部混入优先加载，构造器混入后加载
+			// 同名data，methods等都是构造器覆盖外部混入
+			// 全局混入，最先混入
+			
+			Vue.mixin({
+				created:function(){
+					console.log('全局混入')
+				}
+			})
+			
+			var mix = {
+				data:{
+					msg:'外部msg'
+				},
+				created:function(){
+					console.log('外部混入')
+				},
+				methods:{
+					add:function(){
+						console.log('外部加入')
+					}
+				},
+			}
+		
+		
+			var vm = new Vue({
+				el:'#box',
+				data:{
+					msg:'hello Vue！！'
+				},
+				methods:{
+					add:function(){
+						console.log('构造器点击加入')
+					}
+				},
+				
+				created:function(){
+					console.log('构造器混入')
+				},
+				mixins:[mix],
+
+			})
+			
+			
+			
+		</script>
+	</body>
+
+</html>
