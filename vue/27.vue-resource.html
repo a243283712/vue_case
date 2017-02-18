@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+ <div id="box">
+	
+</div>
+
+
+
+
+	<script>
+	
+	var vm=new Vue({
+			el:'#app',
+			data:{
+				a:'aaa'
+			},
+			components:{
+				'aaa':{
+					template:'#aaa'
+				}
+			}
+		});
+	</script>
+    </body>
+</html>

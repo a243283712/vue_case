@@ -9,15 +9,31 @@
     </head>
     <body>
 
-
+    <button onclick="xiezai()">卸载</button>
+    <button onclick="shuaxin()">刷新</button>
+    <button onclick="xiugai()">修改</button>
+    
+    
     <div id="box">
-        <p>{{msg}}</p>
-        <button onclick="xiezai()">卸载</button>
+        
     </div>
     
     <script type="text/javascript">
     	// jq必须在生命周期 4-6这三个阶段使用
-    
+     	//  vm.$destroy();  
+     	//完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。 触发 beforeDestroy 和 destroyed 的钩子。
+     	
+     	// vm.$forceUpdate();
+     	//迫使Vue实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。
+     	
+     	//vm.$nextTick( [callback] )
+		//参数：
+		//{Function} [callback]
+		//用法：
+		//将回调延迟到下次 DOM 更新循环之后执行。在修改数据之后立即使用它，然后等待 DOM 更新。它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上。
+	
+     	
+     	
 	   	var aaa = Vue.extend({
 	   		template:'<p>{{msg}}</p>',
 	   		data:function(){
@@ -27,15 +43,27 @@
 	   		},
 	   		destroyed:function(){
 	   			console.log('10.销毁之后')
+	   		},
+	   		updated:function(){
+	   			console.log('6.被更新会后')
 	   		}
 	   	})
     
        	var vm = new aaa().$mount('#box') //1.实例化方法一
         
         function xiezai(){
-        	vm.$destroy();
+        	vm.$destroy();  //完全销毁一个实例。清理它与其它实例的连接，解绑它的全部指令及事件监听器。
         }
         
+        function shuaxin(){
+        	vm.$forceUpdate();//迫使Vue实例重新渲染。
+        }
+       
+       	function xiugai(){
+       		vm.$nextTick(function(){
+       			console.log('更新完后我被调用')
+       		})
+       	}
         
     </script>
     </body>

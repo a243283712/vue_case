@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+    
+
+    
+    
+    <div id="app">
+        {{a}}
+        
+        <button onclick="add()">增加</button>
+        <button onclick="off()">del</button>
+    </div>
+    
+    <script type="text/javascript">
+//  	1.vm.$on  
+//  	监听当前实例上的自定义事件。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。
+    	
+//  	2.vm.$once 
+//      监听一个自定义事件，但是只触发一次，在第一次触发之移除除监听器。
+    	
+//   	3.vm.$emit('add',10); 
+//       监听当前实例上的自定义事件。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。
+
+//      4.vm.$off('add');
+//移除事件监听器。
+//
+//如果没有提供参数，则移除所有的事件监听器；
+//
+//如果只提供了事件，则移除该事件所有的监听器；
+//
+//如果同时提供了事件与回调，则只移除这个回调的监听器。
+    	
+    	
+	   	var vm = new Vue({
+	   		el:'#app',
+	   		data:{
+	   			a:1
+	   		},
+	   		methods:{
+	   			add:function(){
+	   				this.a ++
+	   			}
+	   		}
+	   	})
+    
+       	vm.$on('add',function(num){
+       		console.log('执行了add（）')
+       		this.a += num
+       	})
+       	
+//     	vm.$once('add',function(num){
+//     		console.log('执行了add（）')
+//     		this.a += num
+//     	})
+       	
+       	function add(){
+       		vm.$emit('add',10);
+       	}
+       	
+       	function off(){
+       		vm.$off('add');
+       	}
+        
+    </script>
+    </body>
+</html>

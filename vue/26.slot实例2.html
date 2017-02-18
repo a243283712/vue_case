@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+ <div id="box">
+	<aaa>
+		<h1 slot="header">这里可能是一个页面标题</h1>
+		<p>主要内容的一个段落。</p>
+		<p>另一个主要段落。</p>
+		<p slot="footer">这里有一些联系信息</p>
+	</aaa>
+
+</div>
+
+<template id="aaa">
+	<div class="container">
+	  <header>
+	<slot name="header"></slot>
+	  </header>
+	  <main>
+	<slot></slot>
+	  </main>
+	  <footer>
+	<slot name="footer"></slot>
+	  </footer>
+	</div>
+</template>
+
+
+	<script>
+	
+	var vm=new Vue({
+			el:'#box',
+			data:{
+				a:'aaa'
+			},
+			components:{
+				'aaa':{
+					template:'#aaa'
+				}
+			}
+		});
+	</script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Vue</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <script src="jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/vue.js"></script>
+    </head>
+    <body>
+
+    
+
+    
+    
+    <div id="app">
+     
+        <goods v-for="aaa in goods">
+        	<span slot='name'>{{ aaa.name }}</span>
+        	<span slot='num'>{{ aaa.num }}</span>
+        </goods>
+    </div>
+    
+    <template id="demo">
+    	<p>
+    		名称：<slot name="name"></slot>
+    		数量：<slot name="num"></slot>
+    	</p>
+    </template>
+    
+    
+    
+    <script type="text/javascript">
+	
+		// slot 是标签的内容扩展
+	
+		goods = {
+			template:'#demo'
+		}
+	
+	   	var vm = new Vue({
+	   		el:'#app',
+	   		data:{
+	   			goods:[
+	   				{name:'pen',num:10},
+	   				{name:'car',num:1}
+	   			]
+	   		},
+	   		methods:{
+	   			
+	   		},
+	   		components:{
+	   			'goods':goods
+	   		}
+	   	})
+    
+  
+        
+    </script>
+    </body>
+</html>
